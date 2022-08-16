@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container py-4 px-3 mx-auto">
+    <img src="{{ url_for('static', filename='nokids_pos.jpg') }}" class="img-fluid">
+</div>
+<div class="container py-4 px-3 mx-auto">
+    <form method="post">
+        {{ form.csrf_token }}
+        {% include "form_errors.html" %}
+
+        <div class="py-4 px-3 mx-auto">
+            <label for="Reply2">당신의 댓글을 아래 빈 칸에 작성해 주세요.</label>
+            <br><br>
+            <textarea type="text" class="form-control" name="Reply2" id="Reply2" style="height:150px">{{ pr }}</textarea>
+            <br>
+            <button type="submit" class="btn btn-primary">등록</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

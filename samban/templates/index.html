@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container py-4 px-3 mx-auto">
+    <h3>귀하의 참여자 ID를 기입해 주세요.</h3>
+    <form method="post">
+        {{ form.csrf_token }}
+        {% include "form_errors.html" %}
+
+      	{{ form.ID.label }}
+      	{{ form.ID() }}
+        <button type="submit" class="btn btn-primary">등록</button>
+    </form>
+</div>
+
+{% endblock %}
