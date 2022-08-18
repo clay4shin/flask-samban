@@ -12,6 +12,7 @@ bp = Blueprint('main', __name__, url_prefix='/')
 
 @bp.route('/', methods=('GET', 'POST'))
 def index():
+    3/0 # 강제로 오류발생
     form = IDForm()
     if request.method == 'POST' and form.validate_on_submit():
         user = Reply.query.filter_by(participant_id=form.ID.data).first()
