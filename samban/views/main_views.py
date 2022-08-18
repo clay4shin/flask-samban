@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, url_for, request, flash
+from flask import Blueprint, render_template, url_for, request, flash, current_app
 from werkzeug.utils import redirect
 from datetime import datetime
 from google.cloud import language_v1
@@ -12,7 +12,7 @@ bp = Blueprint('main', __name__, url_prefix='/')
 
 @bp.route('/', methods=('GET', 'POST'))
 def index():
-    3/0 # 강제로 오류발생
+    current_app.logger.info("INFO 레벨로 출력")
     form = IDForm()
     if request.method == 'POST' and form.validate_on_submit():
         user = Reply.query.filter_by(participant_id=form.ID.data).first()
