@@ -48,7 +48,9 @@ def result(participant_id):
         # sentiment analysis score DB에 저장
         q1.update({'score': sentiment.score})
         db.session.commit()
-    return render_template('result.html', participant_id=participant_id, sentiment=sentiment, row=row)
+    # sentiment.score 반올림하기 (소숫점 두번째 자리까지)
+    score_round = round(sentiment.score, 2)
+    return render_template('result.html', participant_id=participant_id, score_round=score_round, row=row)
 
 @bp.route('/direct/<int:participant_id>/result/revise', methods=('GET', 'POST'))
 def revise(participant_id):
