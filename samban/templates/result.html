@@ -11,7 +11,7 @@
     <h4 class="border-bottom py-2">인공지능이 분석한 당신의 댓글의 감정분석 결과는 다음과 같습니다.</h4>
     <div class="card my-3">
         <div class="card-body">
-            <div class="card-text" style="white-space: pre-line;">{{ "당신의 댓글의 감정분석 점수는 {} 입니다.".format(score_round) }}
+            <div class="card-text" style="white-space: pre-line;">당신의 댓글의 감정분석 점수는 <span style="color: #ff0000"><b>{{"{}".format(score_round)}}</b></span> 입니다.
 
                 점수는 -1 (아주 부정적)에서 1 (아주 긍정적)으로 변화합니다.
                 점수가 만약 0보다 낮다면 당신의 댓글에서 부정적인 감정이 많이 발견된다는 것을 의미합니다.
