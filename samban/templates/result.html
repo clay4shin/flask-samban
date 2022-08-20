@@ -22,9 +22,13 @@
         </div>
     </div>
     {% if participant_id %}
-        <a href="{{ url_for('main.revise', participant_id=participant_id) }}" class="btn btn-danger">수정할게요</a>
+        <a href="{{ '{}#reply2_{}'.format(url_for('main.revise', participant_id=participant_id), participant_id) }}" class="btn btn-danger">수정할게요</a>
         <a href="{{ url_for('main.bye', participant_id=participant_id) }}" class="btn btn-success">그냥 그대로 제출할게요</a>
     {% endif %}
 </div>
 
 {% endblock %}
+
+<!--
+#    redirect('{}#reply2_place'.format(
+#        url_for('main.revise', participant_id=participant_id, form=form, pr=pr)))
