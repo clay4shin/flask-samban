@@ -8,5 +8,6 @@ class Reply(db.Model):
     score = db.Column(db.Float, nullable=True)
     reply2 = db.Column(db.Text(), nullable=True)
     score2 = db.Column(db.Float, nullable=True)
+    condition = db.Column(db.Integer, nullable=True)
 
 

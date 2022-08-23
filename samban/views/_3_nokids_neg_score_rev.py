@@ -19,7 +19,7 @@ def index():
         if user:
             flash("중복된 참여자 ID입니다. 본인의 참여자 ID를 재확인 후 다시 기입해 주세요.")
         else:
-            r = Reply(participant_id=form.ID.data, create_date=datetime.now())
+            r = Reply(participant_id=form.ID.data, create_date=datetime.now(), condition=3)
             db.session.add(r)
             db.session.commit()
             return redirect(url_for('cond3.direct', participant_id=form.ID.data))
