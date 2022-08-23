@@ -50,7 +50,7 @@ def result(participant_id):
         db.session.commit()
     # sentiment.score 반올림하기 (소숫점 두번째 자리까지)
     score_round = round(sentiment.score, 2)
-    return render_template('result_score.html', participant_id=participant_id, score_round=score_round, row=row)
+    return render_template('result_score.html', participant_id=participant_id, score_round=score_round, row=row, condition=3)
 
 @bp.route('/direct/<int:participant_id>/result/revise', methods=('GET', 'POST'))
 def revise(participant_id):

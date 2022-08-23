@@ -48,7 +48,7 @@ def result(participant_id):
         # sentiment analysis score DB에 저장
         q1.update({'score': sentiment.score})
         db.session.commit()
-    return render_template('result_noscore.html', participant_id=participant_id, row=row)
+    return render_template('result_noscore.html', participant_id=participant_id, row=row, condition=5)
 
 @bp.route('/direct/<int:participant_id>/result/revise', methods=('GET', 'POST'))
 def revise(participant_id):
