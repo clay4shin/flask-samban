@@ -29,7 +29,13 @@ def create_app():
     from . import models
 
     # blueprint
-    from .views import main_views
+    from .views import main_views, _1_nokids_neg_noscore_norev, _2_nokids_neg_noscore_rev, _3_nokids_neg_score_rev, _4_nokids_pos_noscore_norev, _5_nokids_pos_noscore_rev, _6_nokids_pos_score_rev
     app.register_blueprint(main_views.bp)
+    app.register_blueprint(_1_nokids_neg_noscore_norev.bp)
+    app.register_blueprint(_2_nokids_neg_noscore_rev.bp)
+    app.register_blueprint(_3_nokids_neg_score_rev.bp)
+    app.register_blueprint(_4_nokids_pos_noscore_norev.bp)
+    app.register_blueprint(_5_nokids_pos_noscore_rev.bp)
+    app.register_blueprint(_6_nokids_pos_score_rev.bp)
 
     return app

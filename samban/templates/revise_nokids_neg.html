@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!-- this file is not used but kept as an example for main_views.py -->
-
 <div class="container py-4 px-3 mx-auto">
-    <img src="{{ url_for('static', filename='nokids_pos.jpg') }}" class="img-fluid">
+    <img src="{{ url_for('static', filename='nokids_neg.jpg') }}" class="img-fluid">
 </div>
 <div class="container py-4 px-3 mx-auto">
     <form method="post">
@@ -12,9 +10,10 @@
         {% include "form_errors.html" %}
 
         <div class="py-4 px-3 mx-auto">
-            <label for="Reply1">당신의 댓글을 아래 빈 칸에 작성해 주세요.</label>
+            <label for="Reply2">당신의 댓글을 아래 빈 칸에 작성해 주세요.</label>
             <br><br>
-            <textarea type="text" class="form-control" name="Reply1" id="Reply1" style="height:100px"></textarea>
+            <a id="reply2_{{ participant_id }}"></a>
+            <textarea type="text" class="form-control" name="Reply2" id="Reply2" style="height:150px">{{ pr }}</textarea>
             <br>
             <button type="submit" class="btn btn-primary">등록</button>
         </div>
