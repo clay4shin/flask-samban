@@ -59,7 +59,17 @@ def revise(participant_id):
     pr = q[0].reply1
     if request.method == 'POST' and form.validate_on_submit():
         q.update({'reply2': form.Reply2.data})
-        db.session.commit()
+        # Google Cloud Client Library 시작 (korean specific)
+        client = language_v1.LanguageServiceClient()
+        for row in q:
+            document = language_v1.Document(content=row.reply2, type_=language_v1.Document.Type.PLAIN_TEXT,
+                                            language='ko')
+            sentiment = client.analyze_sentiment(
+                request={"document": document}
+            ).document_sentiment
+            # sentiment analysis score DB에 저장
+            q.update({'score2': sentiment.score})
+            db.session.commit()
         return redirect(url_for('cond3.bye', participant_id=participant_id))
     return render_template('revise_nokids_neg.html', participant_id=participant_id, form=form, pr=pr)
 

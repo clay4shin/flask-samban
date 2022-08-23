@@ -7,5 +7,6 @@ class Reply(db.Model):
     reply1 = db.Column(db.Text(), nullable=True)
     score = db.Column(db.Float, nullable=True)
     reply2 = db.Column(db.Text(), nullable=True)
+    score2 = db.Column(db.Float, nullable=True)
 
 
