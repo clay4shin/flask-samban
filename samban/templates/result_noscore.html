@@ -20,10 +20,10 @@
     {% if participant_id %}
         {% if condition == 2 %}
             <a href="{{ '{}#reply2_{}'.format(url_for('cond2.revise', participant_id=participant_id), participant_id) }}" class="btn btn-danger">수정할게요</a>
-            <a href="{{ url_for('cond2.bye', participant_id=participant_id) }}" class="btn btn-success">그냥 그대로 제출할게요</a>
+            <a href="{{ url_for('cond2.bye', participant_id=participant_id) }}" class="btn btn-success">이대로 제출할게요</a>
         {% else %}
             <a href="{{ '{}#reply2_{}'.format(url_for('cond5.revise', participant_id=participant_id), participant_id) }}" class="btn btn-danger">수정할게요</a>
-            <a href="{{ url_for('cond5.bye', participant_id=participant_id) }}" class="btn btn-success">그냥 그대로 제출할게요</a>
+            <a href="{{ url_for('cond5.bye', participant_id=participant_id) }}" class="btn btn-success">이대로 제출할게요</a>
         {% endif %}
     {% endif %}
 </div>
