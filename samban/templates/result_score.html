@@ -3,31 +3,32 @@
 
 <div class="container py-4 px-3 mx-auto">
     <h4 class="border-bottom py-2">당신의 댓글은 다음과 같습니다.</h4>
-    <div class="card my-3">
+    <div class="card my-3 bg-light">
         <div class="card-body">
             <div class="card-text" style="white-space: pre-line;">{{ row.reply1 }}</div>
         </div>
     </div>
     <h4 class="border-bottom py-2">인공지능이 분석한 당신의 댓글의 감정분석 결과는 다음과 같습니다.</h4>
-    <div class="card my-3">
+    <div class="card my-3 bg-light">
         <div class="card-body">
             <div class="card-text" style="white-space: pre-line;">당신의 댓글의 감정분석 점수는 <span style="color: #ff0000"><b>{{"{}".format(score_round)}}</b></span> 입니다.
 
                 점수는 -1 (아주 부정적)에서 1 (아주 긍정적)으로 변화합니다.
                 점수가 만약 0보다 낮다면 당신의 댓글에서 부정적인 감정이 많이 발견된다는 것을 의미합니다.
-                부정적인 감정은 댓글을 읽는 사람들의 감정을 고조시켜 갈등을 악화시킬 수 있습니다.
+                <span style="color: #ff0000">부정적인 감정</span>은 댓글을 읽는 사람들의 감정을 고조시켜 갈등을 악화시킬 수 있습니다.
+                반면 <span style="color: #0000FF">긍정적인 감정</span>은 보는 이들의 마음을 안정시켜 보다 건설적인 토론으로 이어질 수 있습니다.
 
-                댓글을 조금 수정해 보시는 건 어떨까요?
+                댓글을 조금 수정해 보시는 건 어떨까요? 댓글 수정을 통해 <span style="color: #ff0000">부정적인 감정</span>은 줄이고, <span style="color: #0000FF">긍정적인 감정</span>은 높일 수 있습니다.
             </div>
         </div>
     </div>
     {% if participant_id %}
         {% if condition == 3 %}
-            <a href="{{ '{}#reply2_{}'.format(url_for('cond3.revise', participant_id=participant_id), participant_id) }}" class="btn btn-danger">수정할게요</a>
-            <a href="{{ url_for('cond3.bye', participant_id=participant_id) }}" class="btn btn-success">이대로 제출할게요</a>
+            <a href="{{ '{}#reply2_{}'.format(url_for('cond3.revise', participant_id=participant_id), participant_id) }}" class="btn btn-primary">네, 수정할게요</a>
+            <a href="{{ url_for('cond3.bye', participant_id=participant_id) }}" class="btn btn-danger">아니오, 이대로 제출할게요</a>
         {% else %}
-            <a href="{{ '{}#reply2_{}'.format(url_for('cond6.revise', participant_id=participant_id), participant_id) }}" class="btn btn-danger">수정할게요</a>
-            <a href="{{ url_for('cond6.bye', participant_id=participant_id) }}" class="btn btn-success">이대로 제출할게요</a>
+            <a href="{{ '{}#reply2_{}'.format(url_for('cond6.revise', participant_id=participant_id), participant_id) }}" class="btn btn-primary">네, 수정할게요</a>
+            <a href="{{ url_for('cond6.bye', participant_id=participant_id) }}" class="btn btn-danger">아니오, 이대로 제출할게요</a>
         {% endif %}
     {% endif %}
 </div>
