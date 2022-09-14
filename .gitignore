@@ -1,6 +1,0 @@
-.idea
-samban1.db
-*.pyc
-__pycache__
-migrations
-logs
