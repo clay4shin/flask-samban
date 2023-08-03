@@ -35,3 +35,7 @@ dictConfig({
         'handlers': ['file']
     }
 })
+
+# OpenAI API key
+# Remember to set this key as an environment variable first.
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container py-4 px-3 mx-auto">
+    <h3>Please enter your participant ID.</h3>
+    <form method="post">
+        {{ form.csrf_token }}
+        {% include "form_errors.html" %}
+
+      	{{ form.ID.label }}
+      	{{ form.ID() }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

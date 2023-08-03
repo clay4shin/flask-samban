@@ -9,5 +9,7 @@ class Reply(db.Model):
     reply2 = db.Column(db.Text(), nullable=True)
     score2 = db.Column(db.Float, nullable=True)
     condition = db.Column(db.Integer, nullable=True)
+    chatGPT = db.Column(db.Text(), nullable=True)
+
 
 

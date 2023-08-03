@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container py-4 px-3 mx-auto">
+    <h4 class="border-bottom py-2">Your comment is as follows.</h4>
+    <div class="card my-3 bg-light">
+        <div class="card-body">
+            <div class="card-text" style="white-space: pre-line;">{{ row.reply1 }}</div>
+        </div>
+    </div>
+    <h4 class="border-bottom py-2">The following is a comment revision suggestion.</h4>
+    <div class="card my-3 bg-light">
+        <div class="card-body">
+            <div class="card-text" style="white-space: pre-line;"><span style="color: #ff0000">Negative emotions</span> can intensify conflicts and escalate tensions among readers.
+                On the other hand, <span style="color: #0000FF">positive emotions</span> can help stabilize the readers' mindset and lead to more constructive discussions.
+
+                How about making some revisions to your comment?
+                By revising your comment, you can reduce <span style="color: #ff0000">negative emotions</span> and enhance <span style="color: #0000FF">positive emotions</span>.
+            </div>
+        </div>
+    </div>
+    {% if participant_id %}
+        {% for i in range(1, 47, 3) %}
+            {% if condition == i %}
+                <a href="{{ url_for('cond' + i|string + '.bye', participant_id=participant_id) }}" class="btn btn-danger">No, I will not revise my comment.</a>
+                <a href="{{ '{}#reply2_{}'.format(url_for('cond' + i|string + '.revise', participant_id=participant_id), participant_id) }}" class="btn btn-primary">Yes, I will revise my comment.</a>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock %}
