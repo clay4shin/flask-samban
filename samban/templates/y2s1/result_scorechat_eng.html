@@ -11,7 +11,7 @@
     <h4 class="border-bottom py-2">Artificial Intelligence (AI) conducted a sentiment analysis on your comment. The result is as follows.</h4>
     <div class="card my-3 bg-light">
         <div class="card-body">
-            <div class="card-text" style="white-space: pre-line;">The sentiment analysis score on your comment is <span style="color: #ff0000"><b>{{"{}".format(score_round)}}</b></span>.
+            <div class="card-text" style="white-space: pre-line;">The sentiment analysis score on your comment is <span style="color: {% if score_round <= 0 %}#ff0000{% else %}#0000ff{% endif %};"><b>{{"{}".format(score_round)}}</b></span>.
 
                 The score varies from <span style="text-decoration: underline;">-1 (very negative) to 1 (very positive)</span>.
                 If the score is lower than 0, it means that your comment contains a significant amount of negative emotions.
