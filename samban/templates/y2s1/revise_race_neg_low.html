@@ -1,21 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container py-4 px-3 mx-auto">
+<div class="container py-4 px-3 mx-auto" style="background-color: #EEEFF1;">
     <img src="{{ url_for('static', filename='y2s1/race_neg_low.png') }}" class="img-fluid">
 </div>
-<div class="container py-4 px-3 mx-auto">
+<div class="container py-4 px-3 mx-auto" style="background-color: #EEEFF1;">
     <form method="post">
         {{ form.csrf_token }}
         {% include "form_errors.html" %}
 
         <div class="py-4 px-3 mx-auto">
-            <label for="Reply2">Please write your comment in the empty space below.</label>
+            <label for="Reply2">As Anonymous 5, please leave your comment in the empty space below.</label>
             <br><br>
             <a id="reply2_{{ participant_id }}"></a>
             <textarea type="text" class="form-control" name="Reply2" id="Reply2" style="height:150px">{% if condition in range(3, 49, 3) %}{{ rr }}{% else %}{{ pr }}{% endif %}</textarea>
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>
+            <br><br>
+            <span style="color: red;">* Your comment is required to proceed.</span>
         </div>
     </form>
 </div>
