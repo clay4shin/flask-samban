@@ -35,7 +35,7 @@ def direct(participant_id):
             update({'reply1': form.Reply1.data})
         db.session.commit()
         return redirect(url_for('cond36.result', participant_id=participant_id))
-    return render_template('y2s1/exposure_race_neg_low.html', participant_id=participant_id, form=form)
+    return render_template('y2s1/exposure_race_pos_low.html', participant_id=participant_id, form=form)
 
 @bp.route('/direct/<int:participant_id>/result/', methods=('GET', 'POST'))
 def result(participant_id):
@@ -84,7 +84,7 @@ def revise(participant_id):
             q.update({'score2': sentiment.score})
             db.session.commit()
         return redirect(url_for('cond36.bye', participant_id=participant_id))
-    return render_template('y2s1/revise_race_neg_low.html', participant_id=participant_id, form=form, rr=rr, condition=36)
+    return render_template('y2s1/revise_race_pos_low.html', participant_id=participant_id, form=form, rr=rr, condition=36)
 
 @bp.route('/direct/<int:participant_id>/result/bye', methods=('GET', 'POST'))
 def bye(participant_id):
