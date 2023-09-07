@@ -51,8 +51,8 @@ def result(participant_id):
         revised_doc = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": "Please revise the following sentence to make it sound more positive and respectful while still maintaining the key argument as it is."},
+                {"role": "system", "content": "You are a helpful editor."},
+                {"role": "user", "content": "Please revise the following sentence to make it sound more positive and respectful while still maintaining the key argument as it is. Only produce a revised comment. Never answer as an assistant. If the comment is too short to revise, just leave it as it is."},
                 {"role": "user", "content": row.reply1}
             ]
         )
