@@ -52,7 +52,7 @@ def result(participant_id):
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": "Rewrite the following online comment to sound more positive, respectful, and civil while still maintaining the key argument as it is. When you revise, make your best guess even if you don't understand the context fully. Do not ask for more clarification and just give us a version of revision in the best way as you can."},
+                {"role": "user", "content": "Rewrite the following online comment to sound more positive, respectful, and civil while still maintaining the key argument as it is. When you revise, make your best guess even if you don't understand the context fully. Do not ask for more clarification and just give us a version of revision in the best way as you can. Do not say you can't assist with the request."},
                 {"role": "user", "content": row.reply1}
             ]
         )
